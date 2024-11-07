@@ -7,7 +7,7 @@ def acounting(file:str) -> int:
 
 
 #1 Задача
-with open('recepies.txt', encoding='utf-8') as file:
+with open('2txt.txt', encoding='utf-8') as file:
     cook_book = {}
     for i in file:
         recepie_name = i.strip()
@@ -37,7 +37,7 @@ def get_shop_list_by_dishes(person_count: int, dishes: list):
         else:
             print('Такого блюда нет в книге')
     print(result)
-get_shop_list_by_dishes(2, ['Запеченный картофель', 'Омлет'])
+get_shop_list_by_dishes(2, ['Омлет', 'Омлет'])
 
 #3 Задача
 def rewriting(file_for_writing: str, base_path, location):
