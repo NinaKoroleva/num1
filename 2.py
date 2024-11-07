@@ -28,8 +28,10 @@ def get_shop_list_by_dishes(person_count: int, dishes: list):
     for dish in dishes:
         if dish in cook_book:
             for consist in cook_book[dish]:
+                product = consist['product']
+                quantity = consist['quantity'] * person_count
                 if consist['product'] in result:
-                    result[consist['product']]['quantity'] += consist['quantity'] * person_count
+                    result[consist['product']]['quantity'] += consist['quantity']
                 else:
                     result[consist['product']] = {'measure': consist['measure'],'quantity': (consist['quantity'] * person_count)}
         else:
