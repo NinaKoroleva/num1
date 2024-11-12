@@ -23,20 +23,19 @@ with open('2txt.txt', encoding='utf-8') as file:
 
     
 #2 Задача            
-def get_shop_list_by_dishes(person_count: int, dishes: list):
+def get_shop_list_by_dishes(person_count, dishes):
     result = {}
     for dish in dishes:
         if dish in cook_book:
             for consist in cook_book[dish]:
-                product = consist['product']
-                quantity = consist['quantity'] * person_count
-                if consist['product'] in result:
-                    result[consist['product']]['quantity'] += consist['quantity']
+                    if consist['product'] in result:
+                    result[consist['product']]['quantity'] += consist['quantity'] * person_count
                 else:
-                    result[consist['product']] = {'measure': consist['measure'],'quantity': (consist['quantity'] * person_count)}
+                    result[consist['product']] = ({'measure': consist['measure'],'quantity': (consist['quantity'] * person_count)})
         else:
             print('Такого блюда нет в книге')
     print(result)
+    
 get_shop_list_by_dishes(2, ['Омлет', 'Омлет'])
 
 #3 Задача
