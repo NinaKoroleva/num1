@@ -12,19 +12,19 @@ def recipe_create():
         cook_book = {}
         for i in file:
             recepie_name = i.strip()
-            ingredients_count = file.readline()
+            ingredients_count = int(file.readline().strip())
             ingredients = []
-            for p in range(int(ingredients_count)):
+            for p in range(ingredients_count):
                 recepie = file.readline().strip().split(' | ')
                 product, quantity, word = recepie
-                ingredients.append({'product': product, 'quantity': quantity, 'measure': word})
+                ingredients.append({'product': product, 'quantity': int(quantity), 'measure': word})
             file.readline()
             cook_book[recepie_name] = ingredients
     return cook_book
 
     
 #2 Задача            
-def get_shop_list_by_dishes(person_count, dishes):
+def get_shop_list_by_dishes(person_count, dishes, cook_book):
     result = {}
     for dish in dishes:
         if dish in cook_book:
@@ -35,7 +35,7 @@ def get_shop_list_by_dishes(person_count, dishes):
                         result[consist['product']] = ({'measure': consist['measure'],'quantity': (consist['quantity'] * person_count)})
         else:
             print('Такого блюда нет в книге')
-    print(result)
+    return(result)
     
 get_shop_list_by_dishes(2, ['Омлет', 'Омлет'])
 
